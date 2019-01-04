@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_twitter_design/ui/home.dart';
+import 'package:flutter_twitter_design/ui/search.dart';
+import 'package:flutter_twitter_design/ui/news.dart';
+import 'package:flutter_twitter_design/ui/direct_mail.dart';
 
 void main() => runApp(MyApp());
 
@@ -29,10 +33,10 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
 
   final _widgetOptions = [
-   Text('Index 0: Home'),
-   Text('Index 1: Business'),
-   Text('Index 2: School'),
-   Text('Index 3: School'),
+   MyHomeScreen(),
+   MySearchScreen(),
+   MyNewsScreen(),
+   MyDirectMailScreen(),
  ];
 
   @override
