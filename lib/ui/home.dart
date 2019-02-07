@@ -39,10 +39,12 @@ class Tweet extends StatelessWidget {
     return Padding(
         padding: EdgeInsets.only(bottom: 5),
         child: Row(children: [
-          Image.network(
-            "https://pbs.twimg.com/profile_images/905593281270005760/UkL_D7ls_400x400.jpg",
-            height: 50,
-            fit: BoxFit.cover,
+          ClipOval(
+            child: Image.network(
+              "https://pbs.twimg.com/profile_images/905593281270005760/UkL_D7ls_400x400.jpg",
+              height: 50,
+              fit: BoxFit.cover,
+            ),
           ),
           Expanded(
             child:
