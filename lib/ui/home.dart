@@ -1,5 +1,40 @@
 import 'package:flutter/material.dart';
 
+class TweetData {
+  Image image;
+  String name;
+  String contents;
+
+  TweetData(this.image, this.name, this.contents);
+}
+
+final _tweets = [
+  TweetData(
+      Image.network(
+        "https://pbs.twimg.com/profile_images/905593281270005760/UkL_D7ls_400x400.jpg",
+        height: 50,
+        fit: BoxFit.cover,
+      ),
+      "aa",
+      "aa"),
+  TweetData(
+      Image.network(
+        "https://pbs.twimg.com/profile_images/905593281270005760/UkL_D7ls_400x400.jpg",
+        height: 50,
+        fit: BoxFit.cover,
+      ),
+      "bb",
+      "bb"),
+  TweetData(
+      Image.network(
+        "https://pbs.twimg.com/profile_images/905593281270005760/UkL_D7ls_400x400.jpg",
+        height: 50,
+        fit: BoxFit.cover,
+      ),
+      "cc",
+      "cc")
+];
+
 class MyHomeScreen extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -8,10 +43,10 @@ class MyHomeScreen extends StatelessWidget {
       shrinkWrap: true,
       padding: const EdgeInsets.all(20.0),
       children: <Widget>[
-        Tweet(),
-        Tweet(),
-        Tweet(),
-        Tweet(),
+        Tweet(data: _tweets[0]),
+        Tweet(data: _tweets[0]),
+        Tweet(data: _tweets[1]),
+        Tweet(data: _tweets[2]),
       ],
     );
   }
@@ -34,6 +69,9 @@ class TweetLink extends StatelessWidget {
 }
 
 class Tweet extends StatelessWidget {
+  final TweetData data;
+
+  const Tweet({Key key, this.data}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -42,24 +80,20 @@ class Tweet extends StatelessWidget {
           Padding(
               padding: EdgeInsets.all(4),
               child: ClipOval(
-                child: Image.network(
-                  "https://pbs.twimg.com/profile_images/905593281270005760/UkL_D7ls_400x400.jpg",
-                  height: 50,
-                  fit: BoxFit.cover,
-                ),
+                child: this.data.image,
               )),
           Expanded(
             child: Column(children: [
               Align(
                 child: Text(
-                  "unchi",
+                  this.data.name,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 alignment: Alignment.centerLeft,
               ),
-              Text("unchi"),
+              Text(this.data.contents),
               TweetLink()
             ]),
           ),
