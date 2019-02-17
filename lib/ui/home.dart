@@ -1,36 +1,24 @@
 import 'package:flutter/material.dart';
 
 class TweetData {
-  Image image;
+  String imageURL;
   String name;
   String contents;
 
-  TweetData(this.image, this.name, this.contents);
+  TweetData(this.imageURL, this.name, this.contents);
 }
 
 final _tweets = [
   TweetData(
-      Image.network(
-        "https://pbs.twimg.com/profile_images/905593281270005760/UkL_D7ls_400x400.jpg",
-        height: 50,
-        fit: BoxFit.cover,
-      ),
+      "https://pbs.twimg.com/profile_images/905593281270005760/UkL_D7ls_400x400.jpg",
       "aa",
       "aa"),
   TweetData(
-      Image.network(
-        "https://pbs.twimg.com/profile_images/905593281270005760/UkL_D7ls_400x400.jpg",
-        height: 50,
-        fit: BoxFit.cover,
-      ),
+      "https://pbs.twimg.com/profile_images/905593281270005760/UkL_D7ls_400x400.jpg",
       "bb",
       "bb"),
   TweetData(
-      Image.network(
-        "https://pbs.twimg.com/profile_images/905593281270005760/UkL_D7ls_400x400.jpg",
-        height: 50,
-        fit: BoxFit.cover,
-      ),
+      "https://pbs.twimg.com/profile_images/905593281270005760/UkL_D7ls_400x400.jpg",
       "cc",
       "cc")
 ];
@@ -79,8 +67,9 @@ class Tweet extends StatelessWidget {
         child: Row(children: [
           Padding(
               padding: EdgeInsets.all(4),
-              child: ClipOval(
-                child: this.data.image,
+              child: CircleAvatar(
+                backgroundImage: NetworkImage(this.data.imageURL),
+                radius: 25.0,
               )),
           Expanded(
             child: Column(children: [
